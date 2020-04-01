@@ -68,8 +68,6 @@ class Firebase {
 		let result = [];
 		var self = this;
 
-		// let user_cache = {};
-
 		for (let i = 0; i < total; i++) {
 			var data = ids.slice(i * 10, i * 10 + 10);
 			this.db.collection(MATCHES_TABLE).where(firebase.firestore.FieldPath.documentId(), "in", data).get().then(async snapshot => {
@@ -93,19 +91,6 @@ class Firebase {
 							callback(result);
 						}
 					}
-					// if (user_cache[id]) {
-					// 	 result.push([doc.id, doc.data(), user_cache[id]]);
-					// }
-					// else {
-					// 	self.getUser(id, (user) => {
-					// 		result.push([doc.id, doc.data(), user]);
-					// 		user_cache[id] = user;
-					// 		sent ++;
-					// 		if (sent == ids.length) {
-					// 			callback(result);
-					// 		}
-					// 	});
-					// }
 				});
 			});
 		}
@@ -132,25 +117,14 @@ class Firebase {
 		});
 	}
 
-	createMatch(user, theme, time, callback) {
+	createMatch(user, callback) {
 		let self = this;
 
 		this.db.collection(MATCHES_TABLE).add({
-			black: this.auth_user.uid,
-			white: null,
-			moves: [],
-			chat: [],
-			theme: Util.packTheme(theme),
+			turns: [],
 			updated: new Date(),
-			black_timer: time || MAX_TIME,
-			white_timer: time || MAX_TIME,
-			black_undo: DB_REQUEST_NONE,
-			white_undo: DB_REQUEST_NONE,
-			black_draw: DB_REQUEST_NONE,
-			white_draw: DB_REQUEST_NONE,
 		})
 		.then(async function(ref) {
-			console.log(user.matches);
 			let matches = (user && user.matches) ? user.matches : [];
 			matches.push(ref.id);
 
