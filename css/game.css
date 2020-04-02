@@ -118,3 +118,11 @@
 	border-radius: var(--border-radius);
 	box-shadow: calc(var(--margin-size) / 5) calc(var(--margin-size) / 5) var(--margin-size) grey;
 }
+
+
+
+.delete-row-btn {
+	position: absolute;
+	left: auto;
+	right: auto;
+}

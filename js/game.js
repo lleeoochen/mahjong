@@ -16,6 +16,12 @@ database.authenticate((_auth_user) => {
 			initGame();
 		}
 
+		if (turns_applied > match.turns.length) {
+			turns_applied = 0;
+			$('.data-row').remove();
+			total_scores = [0, 0, 0, 0];
+		}
+
 		for (; turns_applied < match.turns.length;) {
 			let scores = Util.unpack(match.turns[turns_applied]);
 			
@@ -25,12 +31,10 @@ database.authenticate((_auth_user) => {
 				return `<td>${ score }</td>`;
 			});
 
-			$(`<tr> ${scores_html} </tr>`).insertBefore($('#match-table #total-scores'));
+			$(`<tr class='data-row' onclick='onRowClicked(event)'> ${scores_html} </tr>`).insertBefore($('#match-table #total-scores'));
 
 			for (let i = 0; i < total_scores.length; i++)
 				total_scores[i] += parseInt(scores[i]);
-
-
 
 			let total_scores_html = total_scores.map(score => {
 				if (score > 0) score = '+' + score;
@@ -38,7 +42,6 @@ database.authenticate((_auth_user) => {
 				return `<td>${ score }</td>`;
 			});
 
-			console.log(total_scores_html);
 			$('#match-table #total-scores').html(
 				`${total_scores_html}`
 			);
@@ -69,6 +72,7 @@ function initGame() {
 		window.location = WEB_URL + "/";
 	});
 
+
 	showHtml('#floating-toolbar .btn', true);
 	game_reset = false;
 }
@@ -88,4 +92,25 @@ function enableHtml(button, toEnable) {
 
 function htmlEnabled(button) {
 	return $(button).attr('disabled') != 'disabled';
+}
+
+function onRowClicked(e) {
+	let parent = $(e.target.parentNode);
+	let grand = $(e.target.parentNode.parentNode);
+	let index = grand.children().index(parent);
+
+	swal({
+		text: `刪除？`,
+		type: "warning",
+		showCancelButton: true,
+		buttons: [
+		  '取消',
+		  '刪除'
+		],
+		closeOnConfirm: false
+	}).then((confirm) => {
+		if (confirm) {
+			database.removeTurn(index);
+		}
+	});
 }
