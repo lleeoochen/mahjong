@@ -20,11 +20,12 @@ database.authenticate((_auth_user) => {
 			turns_applied = 0;
 			$('.data-row').remove();
 			total_scores = [0, 0, 0, 0];
+			$('#match-table #total-scores').html('');
 		}
 
 		for (; turns_applied < match.turns.length;) {
 			let scores = Util.unpack(match.turns[turns_applied]);
-			
+
 			let scores_html = scores.map(score => {
 				if (score > 0) score = '+' + score;
 				else if (score == 0) score = '';

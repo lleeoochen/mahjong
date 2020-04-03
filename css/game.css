@@ -104,7 +104,11 @@
 }
 
 #new-row-table .form-control {
-	font-size: var(--font-size);
+	font-size: var(--font-size) !important;
+	padding: var(--margin-size) calc(var(--margin-size) * 0.5) !important;
+	height: calc(var(--font-size) * 2) !important;
+	border-radius: 0 !important;
+	border: 0 !important;
 }
 
 #new-row-modal .modal-body {
