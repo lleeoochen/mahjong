@@ -33,6 +33,10 @@ function showMatches() {
 							麻將表格<br/>
 							<div class="match-link-date"> ${ d_str } </div>
 						</div>
+						<div class="match-link-turns">
+							${ match_data.turns.length }局
+						</div>
+						<img class="match-link-delete hidden" src="assets/close.png"/>
 					</div>
 				</a>`
 			);
