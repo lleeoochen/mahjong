@@ -65,10 +65,13 @@ function initGame() {
 
 	$('#new-row-submit-btn').on('click', () => {
 		let scores = $.map($('#new-row-modal input'), e => {
+			let sign = $(e).parent().find('img').attr('src') == 'assets/minus.png' ? -1 : 1;
+
 			let val = parseInt(e.value);
-			return val ? val : 0;
+			return val ? sign * Math.abs(val) : 0;
 		});
 		$('#new-row-modal input').val('');
+		$('#new-row-modal .sign-btn img').attr('src', 'assets/plus.png');
 		database.addTurn(scores);
 		$('#new-row-modal').modal('hide');
 	});
@@ -93,6 +96,13 @@ function initGame() {
 
 	$('.form-control.name').on('focusout', (e) => {
 		$(e.target).css('background-color', 'transparent');
+	});
+
+	$('.sign-btn img').on('click', (e) => {
+		if ($(e.target).attr('src') == 'assets/plus.png')
+			$(e.target).attr('src', 'assets/minus.png');
+		else
+			$(e.target).attr('src', 'assets/plus.png');
 	});
 
 	showHtml('#floating-toolbar .btn', true);

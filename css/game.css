@@ -117,11 +117,29 @@
 .form-control.value {
 	font-size: var(--font-size) !important;
 	padding: var(--margin-size) calc(var(--margin-size) * 0.5) !important;
-	height: calc(var(--font-size) * 2) !important;
+	/*height: calc(var(--font-size) * 2) !important;*/
 	border-radius: 0 !important;
 	border: 0 !important;
+    margin: auto !important;
+    width: 80%;
+    height: 100%;
 }
 
+.sign-btn {
+    width: 20%;
+	height: 100%;
+    margin: auto !important;
+}
+
+.sign-btn img {
+	width: var(--icon-size);
+	height: var(--icon-size);
+}
+
+.input-row {
+	display: flex;
+    width: 100% !important;
+}
 
 #new-row-modal .modal-body {
 	text-align: right;
