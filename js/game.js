@@ -76,6 +76,10 @@ function initGame() {
 		$('#new-row-modal').modal('hide');
 	});
 
+	$('#rules-btn').on('click', () => {
+		$('#rules-modal').modal('show');
+	});
+
 	$('#home-btn').on('click', (e) => {
 		window.location = WEB_URL + "/";
 	});

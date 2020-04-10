@@ -65,6 +65,14 @@
 	width: unset !important;
 }
 
+#rules-modal .modal-body {
+	width: 90vw !important;
+}
+
+#rules-modal .modal-dialog {
+	margin-left: calc(90vw * -0.5) !important;
+	margin-top: calc(var(--modal-height) * -0.5) !important;
+}
 
 
 /* Bootstrap swal alert */
