@@ -16,6 +16,10 @@ database.authenticate((_auth_user) => {
 			initGame();
 		}
 
+		if (match.names) {
+			updateNames(match.names);
+		}
+
 		if (turns_applied > match.turns.length) {
 			turns_applied = 0;
 			$('.data-row').remove();
@@ -73,9 +77,38 @@ function initGame() {
 		window.location = WEB_URL + "/";
 	});
 
+	$('.form-control.name').on('change', (e) => {
+		let names = [
+			$('#p1-name-input').val(),
+			$('#p2-name-input').val(),
+			$('#p3-name-input').val(),
+			$('#p4-name-input').val()
+		];
+		database.updateNames(names);
+	});
+
+	$('.form-control.name').on('focus', (e) => {
+		$(e.target).css('background-color', 'white');
+	});
+
+	$('.form-control.name').on('focusout', (e) => {
+		$(e.target).css('background-color', 'transparent');
+	});
 
 	showHtml('#floating-toolbar .btn', true);
 	game_reset = false;
+}
+
+function updateNames(names) {
+	$('#p1-name-input').val(names[0]);
+	$('#p2-name-input').val(names[1]);
+	$('#p3-name-input').val(names[2]);
+	$('#p4-name-input').val(names[3]);
+
+	$('#p1-name').text(names[0]);
+	$('#p2-name').text(names[1]);
+	$('#p3-name').text(names[2]);
+	$('#p4-name').text(names[3]);
 }
 
 function showHtml(button, toShow) {

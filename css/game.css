@@ -103,13 +103,25 @@
 	background-color: #74d1f5de;
 }
 
-#new-row-table .form-control {
+.form-control.name {
+	font-size: var(--font-size) !important;
+	padding: var(--margin-size) calc(var(--margin-size) * 0.5) !important;
+	height: calc(var(--font-size) * 2) !important;
+	border-radius: 0 !important;
+	border: 0 !important;
+	text-align: center;
+	box-shadow: unset !important;
+	background-color: transparent;
+}
+
+.form-control.value {
 	font-size: var(--font-size) !important;
 	padding: var(--margin-size) calc(var(--margin-size) * 0.5) !important;
 	height: calc(var(--font-size) * 2) !important;
 	border-radius: 0 !important;
 	border: 0 !important;
 }
+
 
 #new-row-modal .modal-body {
 	text-align: right;

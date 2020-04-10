@@ -122,6 +122,7 @@ class Firebase {
 
 		this.db.collection(MATCHES_TABLE).add({
 			turns: [],
+			names: [],
 			updated: new Date(),
 		})
 		.then(async function(ref) {

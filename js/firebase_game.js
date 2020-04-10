@@ -29,4 +29,11 @@ class GameFirebase extends Firebase {
 			updated: new Date(),
 		}, { merge: true });	
 	}
+
+	updateNames(names) {
+		this.db.collection(MATCHES_TABLE).doc(this.match_id).set({
+			names: names,
+			updated: new Date(),
+		}, { merge: true });	
+	}
 }

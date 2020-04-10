@@ -43,10 +43,22 @@
 				<div class="modal-body">
 					<table id="new-row-table" class="table">
 						<tbody>
-							<tr> <th>中</th> <td><input type="number" class="form-control" placeholder="0"></td> </tr>
-							<tr> <th>連</th> <td><input type="number" class="form-control" placeholder="0"></td> </tr>
-							<tr> <th>同</th> <td><input type="number" class="form-control" placeholder="0"></td> </tr>
-							<tr> <th>涵</th> <td><input type="number" class="form-control" placeholder="0"></td> </tr>
+							<tr>
+								<th><div id="p1-name" class="name"></div></th>
+								<td><input type="number" class="form-control value" placeholder="0"></td>
+							</tr>
+							<tr>
+								<th><div id="p2-name" class="name"></div></th>
+								<td><input type="number" class="form-control value" placeholder="0"></td>
+							</tr>
+							<tr>
+								<th><div id="p3-name" class="name"></div></th>
+								<td><input type="number" class="form-control value" placeholder="0"></td>
+							</tr>
+							<tr>
+								<th><div id="p4-name" class="name"></div></th>
+								<td><input type="number" class="form-control value" placeholder="0"></td>
+							</tr>
 						</tbody>
 					</table>
 					<div id="new-row-submit-btn" class="btn">新增</div>
@@ -63,7 +75,12 @@
 	<div id="match-title">麻將表格</div>
 	<table id="match-table" class="table">
 		<thead>
-			<tr> <th>中</th> <th>連</th> <th>同</th> <th>涵</th> </tr>
+			<tr>
+				<th><input id="p1-name-input" type="text" class="form-control name" placeholder="名子"></th>
+				<th><input id="p2-name-input" type="text" class="form-control name" placeholder="名子"></th>
+				<th><input id="p3-name-input" type="text" class="form-control name" placeholder="名子"></th>
+				<th><input id="p4-name-input" type="text" class="form-control name" placeholder="名子"></th>
+			</tr>
 		</thead>
 		<tbody>
 			<tr id="total-scores"> </tr>
