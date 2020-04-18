@@ -8,6 +8,7 @@
 		--modal-margin-size:        5vw;
 		--modal-button-title-size:  calc(var(--modal-title-size) * 0.8);
 		--modal-button-margin-size: 6vw;
+		--modal-dialog-width:       80%;
 	}
 }
 
@@ -21,6 +22,7 @@
 		--modal-margin-size:        5vh;
 		--modal-button-title-size:  calc(var(--modal-title-size) * 0.8);
 		--modal-button-margin-size: 3vh;
+		--modal-dialog-width:       50%;
 	}
 }
 
@@ -43,18 +45,9 @@
 }
 
 .modal-dialog {
-	display: inline-block;
-	text-align: left;
-	vertical-align: middle;
-
-	/* Align center */
-	width: var(--modal-width) !important;
-	height: var(--modal-height) !important;
-	position: absolute !important;
-	left: 50% !important;
-	top: 10% !important;
-	margin-left: calc(var(--modal-width) * -0.5) !important;
-	margin-top: calc(var(--modal-height) * -0.5) !important;
+	margin: auto !important;
+	width: var(--modal-dialog-width) !important;
+	justify-content: center !important;
 }
 
 .modal-content {

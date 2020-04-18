@@ -109,6 +109,10 @@ function initGame() {
 			$(e.target).attr('src', 'assets/plus.png');
 	});
 
+	$('#summarize-btn').on('click', (e) => {
+		$('#total-scores').toggleClass('hidden');
+	});
+
 	showHtml('#floating-toolbar .btn', true);
 	game_reset = false;
 }
