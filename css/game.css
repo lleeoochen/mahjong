@@ -67,7 +67,7 @@
 #rules-table {
 	font-size: var(--font-size);
 	width: 100%;
-	margin-bottom: calc(var(--margin-size) * 5) !important;
+	margin-bottom: 0 !important;
 	background-color: #f5ea74;
 	box-shadow: calc(var(--margin-size) / 5) calc(var(--margin-size) / 5) var(--margin-size) grey;
 }
@@ -177,8 +177,6 @@
 	border-radius: var(--border-radius);
 	box-shadow: calc(var(--margin-size) / 5) calc(var(--margin-size) / 5) var(--margin-size) grey;
 }
-
-
 
 .delete-row-btn {
 	position: absolute;
