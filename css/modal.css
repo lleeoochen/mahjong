@@ -53,13 +53,14 @@
 
 .modal-content {
 	border: unset !important;
+	width: 100%;
 }
 
 .modal-body {
 	width: unset !important;
 }
 
-#rules-modal .modal-body {
+#rules-modal .modal-dialog {
 	width: 80vw !important;
 }
 
