@@ -1,0 +1,11 @@
+# Site variables
+title:       Mahjong Score Tracker
+description: This website is built to easily track, compute, and lookup rules for Chinese Mahjong Game.
+
+url:       'www.weitungchen.com'
+baseUrl:   '/mahjong'
+pluginUrl: 'https://weitungchen.com/plugins'
+
+# Build settings
+markdown: kramdown
+theme:    minima

@@ -1,0 +1,23 @@
+---
+layout: default
+permalink: /
+title: Home | PDF Library
+
+css:
+- "index.css"
+js:
+- "index.js"
+---
+
+<h1 id="title">麻將計分</h1>
+<div id="chess-toolbar" hidden>
+	<div id="signout-btn" class="btn btn-primary">登出</div>
+	<div id="new-match-btn" class="btn btn-primary">+表格</div>
+</div>
+
+<div id="matches-display">
+	<div style="padding: 10px; font-size: 2vw; color: black;"> </div>
+	<div id="matches-list" class="row"> </div>
+</div>
+
+{% include modal.html id="firebase-modal" %}

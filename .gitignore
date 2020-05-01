@@ -1,0 +1,9 @@
+.sass-cache/
+.jekyll-cache/
+_site/
+
+.jekyll-metadata
+.sublime-project
+Gemfile.lock
+
+app.sublime-workspace
