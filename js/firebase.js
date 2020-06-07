@@ -8,15 +8,14 @@ class Firebase {
 		this.auth_user = null;
 
 		// General Init
-		var firebaseConfig = {
-			apiKey: "AIzaSyDu8L2m1ATtQLeyk8eL1_993ubhZDT-jik",
-			authDomain: "mahjong-score-tracker.firebaseapp.com",
-			databaseURL: "https://mahjong-score-tracker.firebaseio.com",
-			projectId: "mahjong-score-tracker",
-			storageBucket: "mahjong-score-tracker.appspot.com",
-			messagingSenderId: "522501511228",
-			appId: "1:522501511228:web:c2d62e31ea786d4e37cb39",
-			measurementId: "G-YPHMB3HJL7"
+		let firebaseConfig = {
+			apiKey: "AIzaSyAjnKviJftJE7M0a4ylnMeVpMjI8Y-uG_Q",
+			authDomain: "gamedb-f807e.firebaseapp.com",
+			databaseURL: "https://gamedb-f807e.firebaseio.com",
+			projectId: "gamedb-f807e",
+			storageBucket: "gamedb-f807e.appspot.com",
+			messagingSenderId: "364782423342",
+			appId: "1:364782423342:web:9f0c875b6e988527e3bebf"
 		};
 		firebase.initializeApp(firebaseConfig);
 		this.db = firebase.firestore();
