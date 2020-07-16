@@ -34,6 +34,7 @@
 
 #match-title {
 	font-size: var(--title-size);
+	color: white;
 }
 
 #match-table {
@@ -47,7 +48,7 @@
 #match-table th, #match-table td {
 	text-align: center !important;
 	vertical-align: middle;
-	width: 25%;
+	width: 20%;
 }
 
 #match-table td {
@@ -63,6 +64,7 @@
 #match-table #total-scores {
 	font-weight: bold;
 	border-top: calc(var(--margin-size) * 0.2) solid black;
+	background-color: #ffc114;
 }
 
 
@@ -185,4 +187,12 @@
 	position: absolute;
 	left: auto;
 	right: auto;
+}
+
+.master {
+	background-color: #ffc114;
+}
+
+.round {
+	background-color: #85d4e4;
 }

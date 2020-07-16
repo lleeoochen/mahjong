@@ -5,6 +5,9 @@ var game_reset = true;
 var turns_applied = 0;
 
 var total_scores = [0, 0, 0, 0];
+var starting_master = 0;
+var master = 0;
+var round = 0;
 
 database.authenticate((_auth_user) => {
 	auth_user = _auth_user;
@@ -30,10 +33,10 @@ database.authenticate((_auth_user) => {
 		for (; turns_applied < match.turns.length;) {
 			let scores = Util.unpack(match.turns[turns_applied]);
 
-			let scores_html = scores.map(score => {
+			let scores_html = scores.map((score, i) => {
 				if (score > 0) score = '+' + score;
 				else if (score == 0) score = '';
-				return `<td>${ score }</td>`;
+				return `<td class="${ i == master ? 'master' : '' }">${ score }</td>`;
 			});
 
 			$(`<tr class='data-row' onclick='onRowClicked(event)'> ${scores_html} </tr>`).insertBefore($('#match-table #total-scores'));
@@ -50,6 +53,24 @@ database.authenticate((_auth_user) => {
 			$('#match-table #total-scores').html(
 				`${total_scores_html}`
 			);
+
+			// console.log("==========");
+			// console.log("master:", master);
+			// console.log("round:", round);
+
+			// await new Promise((resolve) => {
+			//     setTimeout(() => { resolve() }, 1000)
+			// });
+
+			// If master doesn't win, rotate master.
+			if (scores[master] <= 0) {
+				master = (master + 1) % scores.length;
+
+				// Advance round
+				if (master == starting_master) {
+					round ++;
+				}
+			}
 
 			turns_applied ++;
 		}
@@ -70,6 +91,12 @@ function initGame() {
 			let val = parseInt(e.value);
 			return val ? sign * Math.abs(val) : 0;
 		});
+
+		// Make sure they sum to 0
+		if (scores.reduce((total, i) => total += i) != 0) {
+			return false;
+		}
+
 		$('#new-row-modal input').val('');
 		$('#new-row-modal .sign-btn img').attr('src', 'assets/plus.png');
 		database.addTurn(scores);
