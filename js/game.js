@@ -27,6 +27,8 @@ database.authenticate((_auth_user) => {
 			turns_applied = 0;
 			$('.data-row').remove();
 			total_scores = [0, 0, 0, 0];
+			master = 0;
+			round = 0;
 			$('#match-table #total-scores').html('');
 		}
 
@@ -98,7 +100,7 @@ function initGame() {
 		}
 
 		$('#new-row-modal input').val('');
-		$('#new-row-modal .sign-btn img').attr('src', 'assets/plus.png');
+		$('#new-row-modal .sign-btn img').attr('src', 'assets/minus.png');
 		database.addTurn(scores);
 		$('#new-row-modal').modal('hide');
 	});
